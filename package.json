@@ -1,0 +1,41 @@
+{
+  "name": "app-notes",
+  "version": "1.0.0",
+  "description": "Ejercicio de una app-web de notas con control de usuarios, utilizando NodeJS y MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jose0112luis/app-notes-jl.git"
+  },
+  "keywords": [
+    "app-notes",
+    "node",
+    "mongo"
+  ],
+  "author": "José Luis Parra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jose0112luis/app-notes-jl/issues"
+  },
+  "homepage": "https://github.com/jose0112luis/app-notes-jl#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.2",
+    "express-session": "^1.17.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.2.3",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.0",
+    "nodemon": "^2.0.15",
+    "npm-check-updates": "^12.4.0"
+  }
+}

@@ -18,7 +18,7 @@ express-session
 nos va ayudar a guardar algunos datos desde la memoria del servidor, esto nos sirve cuando un usuario hace login.
 
 method-override
-nos va a servir para poder enviar peticiones PUT, DELETE desde la vista. 
+nos va a servir para poder enviar peticiones PUT, DELETE desde la "vista" (forms), cosa q no se puede con los formularios HTML q solo permite GET Y POST. 
 
 mongoose
 este modulo me va ayudar a poder manejar la BDD MongoDB.

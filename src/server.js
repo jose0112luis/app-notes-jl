@@ -3,6 +3,7 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const morgan = require('morgan');
+const methodOverride = require('method-override');
 
 // Initializations
 const app = express();
@@ -21,6 +22,7 @@ app.set('view engine', '.hbs');
 // Middlewares
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false})); //convertir los datos a JSON
+app.use(methodOverride('_method'));
 
 // Global Variables
 

@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 
 const userSchema = new Schema({
     name: { type: String, required: true },
-    emial: { type: String, required: true },
+    email: { type: String, required: true },
     password: { type: String, required: true }
 },
 {
@@ -18,7 +18,7 @@ userSchema.method.encryptPassword = async password => {
 };
 
 // para comparar la contraseña con la BDD
-userSchema.method.matchPassword = function(password) {
+userSchema.method.matchPassword = async function(password) {
     return await bcrypt.compare(password, this.password);
 };
 

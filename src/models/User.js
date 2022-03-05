@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 
 const userSchema = new Schema({
     name: { type: String, required: true },
-    email: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
     password: { type: String, required: true }
 },
 {
@@ -12,13 +12,13 @@ const userSchema = new Schema({
 
 // mongoose me permite creat metodos a partir de la función method
 // para cifrar/encriptar la contraseña
-userSchema.method.encryptPassword = async password => {
+userSchema.methods.encryptPassword = async password => {
     const salt = await bcrypt.genSalt(10);
     return await bcrypt.hash(password, salt);
 };
 
 // para comparar la contraseña con la BDD
-userSchema.method.matchPassword = async function(password) {
+userSchema.methods.matchPassword = async function(password) {
     return await bcrypt.compare(password, this.password);
 };
 

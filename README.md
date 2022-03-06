@@ -18,13 +18,13 @@ nos ayuda a crear alunas vistas, pueden ser archivos hbs (similar a como se util
 nos va ayudar a guardar algunos datos desde la memoria del servidor, esto nos sirve cuando un usuario hace login.
 
 ### method-override
-nos va a servir para poder enviar peticiones PUT, DELETE desde la vista. 
+nos va a servir para poder enviar peticiones PUT, DELETE desde la "vista" (forms), cosa q no se puede con los formularios HTML q solo permite GET Y POST. 
 
 ### mongoose
 este modulo me va ayudar a poder manejar la BDD MongoDB.
 
 ### passport
-es un modulo q nos va a permitir poder autenticar al usuario, poder darle al usuario un login y cuando envíe vamos a utilizar un metodo q se encargue de verificar ese usuario y contraseña.
+es un modulo q nos va a permitir poder autenticar al usuario, poder darle al usuario un login y cuando envíe vamos a utilizar un metodo q se encargue de verificar ese usuario y contraseña. Passport nos ayuda a controlar las sessiones de la aplicación.
 
 ### passport-local
 para decirle q voy a utilizar bdd local

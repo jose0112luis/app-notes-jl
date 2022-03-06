@@ -24,7 +24,7 @@ mongoose
 este modulo me va ayudar a poder manejar la BDD MongoDB.
 
 passport
-es un modulo q nos va a permitir poder autenticar al usuario, poder darle al usuario un login y cuando envíe vamos a utilizar un metodo q se encargue de verificar ese usuario y contraseña.
+es un modulo q nos va a permitir poder autenticar al usuario, poder darle al usuario un login y cuando envíe vamos a utilizar un metodo q se encargue de verificar ese usuario y contraseña. Passport nos ayuda a controlar las sessiones de la aplicación.
 
 passport-local
 para decirle q voy a utilizar bdd local

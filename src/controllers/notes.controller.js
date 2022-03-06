@@ -8,21 +8,41 @@ notesCtrl.renderNoteForm = (req,res) => {
 
 notesCtrl.createNewNote = async (req,res) => {
     const {title, description} = req.body;
-    const newNote = new Note({title, description})  //es igual a Note({title:title, description:description})
-    await newNote.save();
-    req.flash('success_msg', 'Note Add Successfully');
-    res.redirect('/notes');
+    const errors = [];
+    if (!title) {
+        errors.push({text: 'Please Write a Title'});
+    }
+    if (!description) {
+        errors.push({text: 'Please Write a Description'});
+    }
+    if (errors.length > 0) {
+        res.render('notes/newNote', {
+            errors,
+            title, 
+            description
+        });
+    } else {
+        const newNote = new Note({title, description})  //es igual a Note({title:title, description:description})
+        newNote.user = req.user.id;
+        await newNote.save();
+        req.flash('success_msg', 'Note Add Successfully');
+        res.redirect('/notes');
+    }
 };
 
 // Get All Notes
 notesCtrl.renderNotes = async (req,res) => {
-    const notes = await Note.find().lean();
+    const notes = await Note.find({user: req.user.id}).sort({createdAt: 'desc'}).lean();
     res.render('notes/allNotes', { notes });
 };
 
 // Edit Notes
 notesCtrl.renderEditForm = async (req,res) => {
     const note = await Note.findById(req.params.id).lean();
+    if (note.user != req.user.id) {
+        req.flash('error_msg', 'Not Authorized Link');
+        return res.redirect('/notes');
+    }
     res.render('notes/editNotes', {note});  //{note} = {note:note}
 };
 
